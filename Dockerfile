@@ -44,5 +44,5 @@ RUN rm -r ~/temp
 RUN cp ~/datomic/config/samples/free-transactor-template.properties ~/datomic/free-transactor.properties
 # -- execute free transactor with default settings
 CMD ["/root/datomic/bin/transactor", "/root/datomic/free-transactor.properties"]
-EXPOSE 4334
+EXPOSE 4334 4334
 
