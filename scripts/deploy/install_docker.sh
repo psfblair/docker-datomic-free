@@ -19,7 +19,6 @@ sudo apt-get install linux-image-extra-`uname -r`
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
 
 # install docker
-
 sudo sh -c "echo deb http://get.docker.io/ubuntu docker main\
 > /etc/apt/sources.list.d/docker.list"
 
@@ -30,9 +29,9 @@ sudo apt-get install -y lxc-docker
 sudo addgroup docker
 
 # add the connected user to the docker group
+sudo gpasswd -a vagrant docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
-
 
 #add fix for JVM memory allocation in the running container
 #source: http://devashish.co.in/2013/09/28/docker-containers-memory-troubleshooting/
@@ -43,4 +42,6 @@ sudo chmod 600 /root/myswapfile
 sudo mkswap /root/myswapfile
 sudo swapon /root/myswapfile
 
+# fix locale issue
+sudo locale-gen en_US.UTF-8
 

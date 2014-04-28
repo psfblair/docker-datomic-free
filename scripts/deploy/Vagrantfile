@@ -10,18 +10,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "saucy-server-cloud-img"
+  config.vm.box = "ubuntu/trusty64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
-  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box"
+  config.vm.box_url = "https://vagrantcloud.com/ubuntu/trusty64/version/1/provider/virtualbox.box"
 
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 4334, host: 4334
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -43,6 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
 
   config.vm.synced_folder "../../", "/docker_data", type: "nfs"
+  config.vm.synced_folder "../../configs", "/datomic_configs", type: "nfs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -65,6 +67,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #end
 
   config.vm.provision "shell", path: "install_docker.sh"
+  config.vm.provision "shell", path: "install_java.sh"
+  config.vm.provision "shell", path: "install_datomic_tester.sh"
   config.vm.provision "shell", path: "create_docker_image.sh"
 
   #solve plugin conflict
