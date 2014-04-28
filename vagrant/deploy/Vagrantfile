@@ -43,8 +43,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  config.vm.synced_folder "../../", "/docker_data", type: "nfs"
-  config.vm.synced_folder "../../configs", "/datomic_configs", type: "nfs"
+  #config.vm.synced_folder "../../", "/docker_data", type: "nfs"
+  #config.vm.synced_folder "../../configs", "/datomic_configs", type: "nfs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -66,10 +66,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #  ansible.verbose = "vvvv"
   #end
 
-  config.vm.provision "shell", path: "install_docker.sh"
-  config.vm.provision "shell", path: "install_java.sh"
-  config.vm.provision "shell", path: "install_datomic_tester.sh"
-  config.vm.provision "shell", path: "create_docker_image.sh"
+  config.vm.provision "shell", path: "../../scripts/install_docker.sh"
+  config.vm.provision "shell", path: "../../scripts/install_java.sh"
+  config.vm.provision "shell", path: "../../scripts/install_datomic_tester.sh"
+  config.vm.provision "shell", path: "../../scripts/create_docker_image.sh"
 
   #solve plugin conflict
   if Vagrant.has_plugin?("vagrant-vbguest") then

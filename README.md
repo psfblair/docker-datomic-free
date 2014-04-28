@@ -32,6 +32,8 @@ $> docker run -p 4334:4334 --rm tauho/datomic-free:0.9.4699
 3. Test locally built docker images on another console pane
 
 ```
+$> cd vagrant/deploy
+
 $> vagrant ssh
 $> docker ps
 $> docker inspect <container-id>
@@ -56,9 +58,32 @@ Voila! It's working as expected and ready to release new version.
 
 ## Demo version
 
-it's plain Vagrant machine, which has prebuilt docker and uses already published Datomic images;
+It fires up Ubuntu/14.04 virtualmachine and during the first run it'll run 
+provision, which installs docker and pulls tauho/datomic-free baseimage from
+Docker's public index.
 
-:TODO: FINISH IT
+After successfull provisioning, it will execute script "run_datomic.sh", which
+will run new datomic container as daemon process.
+
+```
+$> cd  vagrant/run
+$> vagrant up
+
+;; if provision fails, you can re-runned it again
+$> vagrant provision
+
+;;check datomic's container on host
+$> vagrant ssh
+$> docker ps
+ ... here will be a list of all running containers
+$> docker inspect <container-id>
+ ... all the metainfo
+ 
+ ;; use following command to run interactive shell on the new datomic container 
+$> docker run --rm -i -t tauho/datomic-free:0.9.4699 /bin/bash
+```
+
+after successful provision you will see metainfo of the running datomic container;
 
 
 ## Updating
