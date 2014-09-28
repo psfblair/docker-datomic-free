@@ -56,5 +56,5 @@ RUN sed "s/host=localhost/host=0.0.0.0/" -i ~/datomic/free-transactor.properties
 
 # -- execute free transactor with updated settings
 CMD ["/root/datomic/bin/transactor", "/root/datomic/free-transactor.properties"]
-EXPOSE 4334
+EXPOSE 4334 4335 4336
 
