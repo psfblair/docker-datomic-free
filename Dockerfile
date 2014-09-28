@@ -53,7 +53,7 @@ RUN cp ~/datomic/config/samples/free-transactor-template.properties ~/datomic/fr
 
 # modify url in transactor file
 RUN sed "s/host=localhost/host=0.0.0.0/" -i ~/datomic/free-transactor.properties
-RUN sed "/host=0.0.0.0/a alt-host=127.0.0.1/" -i ~/datomic/free-transactor.properties
+RUN sed "/host=0.0.0.0/a alt-host=127.0.0.1" -i ~/datomic/free-transactor.properties
 
 ADD run.sh /usr/local/bin/run.sh
 
