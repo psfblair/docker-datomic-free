@@ -55,10 +55,10 @@ RUN cp ~/datomic/config/samples/free-transactor-template.properties ~/datomic/fr
 RUN sed "s/host=localhost/host=0.0.0.0/" -i ~/datomic/free-transactor.properties
 RUN sed "/host=0.0.0.0/a alt-host=127.0.0.1/" -i ~/datomic/free-transactor.properties
 
-ADD run.sh ~/datomic/run.sh
+ADD run.sh /usr/local/bin/run.sh
 
 # -- execute free transactor with updated settings
 #CMD ["/root/datomic/bin/transactor", "/root/datomic/free-transactor.properties"]
-CMD ["/root/datomic/run.sh"]
+CMD ["/usr/local/bin/run.sh"]
 EXPOSE 4334 4335 4336
 
