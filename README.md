@@ -14,7 +14,7 @@ More documentation is coming soon.
 It is used to build new [docker](https://www.docker.io/) images. As you can see, this example expects that
 you have already installed [Vagrant](http://www.vagrantup.com/). If not, then please install it.
 
-1. Before running code examples, please move into `scripts/deploy` folder
+1. Before running code examples, please move into `vagrant/deploy` folder
 
 ```
 $> vagrant up
@@ -26,7 +26,7 @@ This command sets up proper machine with preinstalled java, docker and it downlo
 
 ```
 $> vagrant ssh
-$> docker run -p 4334:4334 --rm tauho/datomic-free:0.9.4699 
+$> docker run -p 4334:4334 --rm tauho/datomic-free:0.9.4699
 ```
 
 3. Test locally built docker images on another console pane
@@ -58,7 +58,7 @@ Voila! It's working as expected and ready to release new version.
 
 ## Demo version
 
-It fires up Ubuntu/14.04 virtualmachine and during the first run it'll run 
+It fires up Ubuntu/14.04 virtualmachine and during the first run it'll run
 provision, which installs docker and pulls tauho/datomic-free baseimage from
 Docker's public index.
 
@@ -78,8 +78,8 @@ $> docker ps
  ... here will be a list of all running containers
 $> docker inspect <container-id>
  ... all the metainfo
- 
- ;; use following command to run interactive shell on the new datomic container 
+
+ ;; use following command to run interactive shell on the new datomic container
 $> docker run --rm -i -t tauho/datomic-free:0.9.4699 /bin/bash
 ```
 
@@ -93,4 +93,3 @@ Fork it, made changes on new branch and send your pull request.
 ## Credits
 
 All rights reserved by [Cognitect Inc](http://www.cognitect.com)
-
