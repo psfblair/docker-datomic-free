@@ -15,7 +15,7 @@ RUN sudo apt-get install -y curl
 RUN sudo apt-get install -y unzip
 
 #initialise global variables
-ENV DATOMIC_VERSION 0.9.4699
+ENV DATOMIC_VERSION 0.9.5130
 ENV DATOMIC_HOME /home/docker/datomic
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 ENV PATH $JAVA_HOME:/bin:/usr/bin:$PATH
