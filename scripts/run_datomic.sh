@@ -8,7 +8,7 @@
 
 
 IMAGE=tauho/datomic-free
-TAG=0.9.4699
+TAG=0.9.5344
 IN_PORT=4334 # guest's side port
 OUT_PORT=4334 # port on host
 
@@ -21,4 +21,3 @@ CID=$(docker run -d -n=true -p $IN_PORT:$OUT_PORT $IMAGE:$TAG)
 
 #show metainfo of the running container
 docker inspect $CID
-

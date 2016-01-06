@@ -1,4 +1,4 @@
-# Datomic Free v0.9.4699
+# Datomic Free v0.9.5344
 #
 # It's public image to run datomic database on docker container.
 
@@ -15,7 +15,7 @@ RUN sudo apt-get install -y curl
 RUN sudo apt-get install -y unzip
 
 #initialise global variables
-ENV DATOMIC_VERSION 0.9.5130
+ENV DATOMIC_VERSION 0.9.5344
 ENV DATOMIC_HOME /home/docker/datomic
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 ENV PATH $JAVA_HOME:/bin:/usr/bin:$PATH
@@ -61,4 +61,3 @@ ADD run.sh /usr/local/bin/run.sh
 #CMD ["/root/datomic/bin/transactor", "/root/datomic/free-transactor.properties"]
 CMD ["/usr/local/bin/run.sh"]
 EXPOSE 4334 4335 4336
-

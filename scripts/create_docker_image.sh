@@ -10,7 +10,7 @@ DOCKERFILE_PATH=/docker_data/Dockerfile
 REPOSITORY=tauho
 IMAGE_NAME=datomic-free
 
-VERSION_TAG=0.9.4699
+VERSION_TAG=0.9.5344
 REPO_TAG=latest
 
 # create data folder on host
@@ -33,4 +33,3 @@ sudo docker build\
 #push a repository to it's registry
 # NB! Be sure that image is working before committing
 #sudo docker push $REPOSITORY/$IMAGE_NAME
-
